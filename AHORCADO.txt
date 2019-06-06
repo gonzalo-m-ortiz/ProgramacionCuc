@@ -1,0 +1,278 @@
+PLANTEAMIENTO DEL PROGRAMA: AHORCADO
+
+Hola, este es mi planteamiento del proyecto ahorcado. 
+Como un miniresumen, voy a plantear los pasos a seguir por el programa y formular todas las preguntas que pueden surgir durante el proyecto sobré qué es lo que va mostrar el programa al usuario.
+Antes que nada te recomiendo dejar de leer y plantear tu propio ahorcado, porque según yo, cuando te dan un problema que se puede solucionar de distintas maneras y te muestran una, te es muy difícil pensar otra.
+Esto con el fin de tener ideas distintas y depués comparar, porque es muy probable que lo que penses sea más eficiente que lo que hice yo, aunque si sos el carlitos o el profe pasá de largo.
+También aclaro que acá no está desarrollado nada de código, son simplemente los pasos gigantes (o nombres de las funciones si lo queres ver así). Consideré mejor dejar el código para después.
+Soy Gonzalo Ortiz por cierto
+
+Primero pensé su lógica fundamental, creo que sería algo como esto:
+
+// Pedir palabra
+// Pedir intento
+// Comprobar intento (Repetir este punto hasta ganar o perder)
+
+
+Ahora, hay que subdividir este orden de pasos en pasos más detallados y específicos:
+
+1) // Introducción al programa
+2) // Pedir dificultad
+3) // Comprobar dificultad
+4) // Pedir palabra
+5) // Comprobar palabra
+6) // Confirmar palabra
+7) // Limpiar consola, mostrar palabra en guiones y vidas restantes
+{
+	8) // Pedimos intento
+	
+	9) //Lógica de reemplazar intento por guión
+	   Case true: Reemplazar intento por guión
+	   Case false: Restar vida
+	
+	10) // Mostramos estado de guiones y vidas restantes
+	(console.clear();)	
+} Repetir hasta que: No haya mas guiones || no haya mas vidas
+
+11) // Mostrar pantalla final:
+Case 1: Win
+Case 2: Game Over
+
+
+Esto es lo que pensé para estructurar un poco y dividir el trabajo en varios pasos.
+Es muy probable que me haya olvidado de algunos pasos. Para cambiar algo no editen el texto, apreciaría una crítica al final de todo.
+
+Explicación rápida de cada paso: (abajo cada uno tiene un ASPECTO propio donde planteo que problemas hay, que decisiones tenemos que tomar y que tenemos que tener en cuenta) 
+
+1) Introducción al programa:
+Aca hay que darle la bienvenida al usario al programa.
+
+2) Pedir dificultad:
+Este tema está bueno, primero habría que definir dificultad. En este caso yo lo asocié con la cantidad de intentos o "vidas" que va a tener el usuario. 
+Hablamos en clase que tendría que ser un valor entero natural entre 0 y 27 (cantidad de letras en el abecedario).
+
+3) Comprobar dificultad:
+Acá hay que verificar si lo ingresado es un entero entre 0 y 27. De no ser así habría que pedirle al usuario que lo ingrese de nuevo.
+
+4) Pedir palabra:
+Básicamente pedirle una palabra al usuario, no tiene mucha ciencia.
+
+5) Comprobar palabra:
+Verfificar si la palabra ingresada es una sucesión de letras y que no tenga números ni caracteres extraños. De no ser así habría que pedirle al usuario que lo ingrese de nuevo.
+
+6) Confirmar palabra:
+Esto lo planteamos en clase, básicamente es preguntarle al usuario si está seguro de usar esa palabra.
+
+7) Limpiar consola y mostrar palabra en guiones y vidas restantes:
+Acá empieza lo complicado. Para empezar hay que limpiar la consola para que no aparezca la palabra que escribió el jugador anteriormente, este punto es importante. 
+Después hay que mostrar tantos guiones como letras tenga la palabra original. Y por último hay que mostrar las vidas restantes que serían igual a las ingresadas.
+
+8) Pedimos intento:
+Hay que pedir al usuario que ingrese una letra.
+
+9) Lógica de reemplazar intento por guión:
+Acá hay que comparar lo que ingresó el usuario en el paso 8) (que voy a denominar como "intento"), con cada letra de la palabra original.
+También hay que reemplazar el intento por la letra correspondiente, y en caso de que el intento sea erróneo, hay que restar una vida. 
+ESTE PASO ES EL MÁS IMPORTANTE DEL PROGRAMA.
+
+10) Mostramos estado de guiones y vidas restantes:
+Acá hay que imprimir los guiones y las vidas, si el jugador ya acertó a alguna letra, obviamente hay que mostrar el progreso de la palabra.
+
+11) Mostrar pantalla final:
+Básicamente es eso, decir al jugador si ganó o perdió.
+
+
+Una vez que ya expliqué con más detalle a qué me refería con cada paso, quiero onda abrir un debate de algunas decisiones que podemos tomar. 
+
+
+
+
+1) APARTADO INTRODUCCIÓN AL PROGRAMA:
+
+Bueno, este punto como se imaginan supongo, es exclusivamente para que el programa quede más bonito y más presentable.
+No tiene complejidad en el código, es solamente saber qué queremos imprimir en pantalla para introducir el juego. 
+Una de las decisiones a tomar es el tema de las reglas, tenemos que decidir qué reglas o instrucciones le vamos a decir al usuario. 
+Otro punto de las instrucciones es que las podemos escribir acá, o las podemos escribir al pedir la palabra (es decir, que cuando pedimos la palabra, le tiramos un: "Recordá que la palabra no puede tener números, que se debe escribir sin tildes, etc")
+
+Problemas del apartado: ¿Qué vamos a escribir en la introducción?
+			¿Vamos a poner instrucciones?, ¿Las ponemos acá o cuando pedimos la palabra?
+
+
+
+2) APARTADO DIFICULTAD:
+
+Bien, acá es algo un toque personal nuestro de cómo queremos que funcione el juego.
+Creo que primero tendríamos que establecer ciertas variables que formen la "dificultad", estas variables podrían ser estas por ejemplo:
+* Vidas que tenemos, o la cantidad de intentos
+* Si queremos mostrar la primera letra de la palabra
+* Mostrarle al usuario las letras que ya probó.
+Una vez que ya decidimos qué va a fomar la dificultad, tenemos que ver si le vamos a dar la opción al usuario de cambiar estos valores (si el usuario va a poder establecer las vidas que quiere por ejemplo)
+Otro aspecto de la dificultad es: ¿Cuándo le vamos a preguntar la dificultad al usuario?. Le podemos preguntar después de la introducción o después de que ingrese la palabra.
+
+Problemas del apartado: Variables de la dificultad
+                        ¿Dónde/Cuándo preguntamos la dificultad?
+
+
+
+3) APARTADO COMPROBACIONES:
+
+Este apartado engloba (por decir así), al paso 3 y 5. Básicamente es comprobar que el usario no esté ingresando cualquier morondanga. 
+También obvio hay que comprobar que no se ingresen letras cuando pedimos enteros porque el programa va a fallar.
+Las comprobaciones que hay que hacer son la de la dificultad y la de la palabra ingresada. (No profundizo más porque no me quiero meter en temas de código)
+Hago este apartado porque hay un problema, hay que decidir si queremos comprobar el "intento". 
+A lo que me refiero es que por ejemplo si el usuario ingresa la palabra "hola", y como intento ingresa "ho", claramente este intento nunca va a ser igual a alguna letra.
+Ahora, está en nosotros decidir si le restamos una vida o le decimos, "mirá flaco, la verdad que no es válido el intento, poné otro".
+También podemos optar por advertir una sola vez que el intento está mal escrito, y a la próxima descontamos una vida.   
+
+Problemas del apartado: ¿Comprobar intento?
+
+
+4) APARTADO PEDIR PALABRA:
+  
+Acá solo veo una cosa por comentar, pero creo que no hay ningún problema fuera de eso.
+Como dijo el profe, si lo piensan, no hay manera de que sepamos si la palabra ingresada es realmente una palabra.
+Me explico, yo puedo ingresar como palabra: "fhjaashjgfas". Esa "palabra" va a pasar la comprobación sin problemas.
+La única manera de detectar si es en verdad una palabra sería compararla con un arreglo que tenga todas las palabras, o sea, compararla con un diccionario.
+Quizás se puede agregar pero no sé hasta que punto hace más pesado el juego.
+
+
+
+6) APARTADO CONFIRMAR PALABARA:
+
+Acá es lo mismo de siempre, tenemos que decidir si queremos que se pida una confirmación de la palabra al usuario.
+Por ejemplo, si el usuario ingresa la palabra "hola", queda en en nosotros preguntarle: "¿Estás seguro de que tu palabra final va a ser: hola ?"
+
+Problemas del apartado: ¿Confirmar palabra?
+
+
+
+7) APARTADO LIMPIAR CONSOLA, MOSTRAR PALABRA EN GUIONES Y VIDAS RESTANTES
+
+Limpiar consola: con limpiar la consola, me refiero a borrar todo lo que hemos escrito previamente. Creo que ya expliqué por qué hay que borrarla.
+Vidas restantes: acá solamente hay que imprimir las vidas que se ingresaron al principio.
+Mostrar palabra en guiones: Respecto a esto, este punto es complicado. Como ya dije, no me quiero meter en líneas de código.
+Básicamente tenemos que crear otra variable del mismo tamaño y reemplazar cada letra por un guión. Después imprimir esa variable. (Con imprimir me refiero a mostrar en consola)
+No veo problemas a resolver, si bien crear el algoritmo es un problema en sí, en este .txt no me enfoco en cómo crear el algoritmo, sino en resolver los problemas de cómo va actuar el juego respecto a diferentes aspectos.
+
+
+
+8) APARTADO PEDIR INTENTO:
+
+Solamente tenemos que pedir un valor, lo de comprobarlo ya lo mencioné antes y planteé su problema.
+
+
+
+9) APARTADO LÓGICA DE REEMPLZAR INTENTO POR GUIÓN:
+
+Este punto es el más difícil de todo, esta es la lógica básica del programa, todo lo demás es pedir, comprobar y mostrar valores.
+No sé que más puedo decir, creo que esto habría que analizarlo detenidamente en la clase.
+
+
+
+10) APARTADO MOSTRAR ESTADO DE GUIONES Y VIDAS RESTANTES:
+
+Esto es solamente imprimir los guiones y las vidas restantes.
+Quiero aclarar por qué escribo: ESTADO DE GUIONES.
+Ya hablé un poco de esto en el apartado 7). Cuando imprimimos guiones, no mandamos una línea de código que diga [Console.WriteLine("----");].
+En cambio, tenemos que imprimir la variable guion en sí, o sea, lo que valga guion en ese momento.
+Acá sí veo un problema. Tenemos que decidir si queremos imprimir todos los intentos que el usuario realizó. (o sea, si le vamos a mostrar las letras que ya probó y no funcionaron, ej " -O-A  3 vidas restantes  letras probadas erróneas: M, E, I, U")
+Ahora, por qué este es un problema de este apartado y no de el de dificultad?: La verdad que no sé.
+
+Problemas no especificamente de este apartado: ¿Vamos a guardar y ofrecerle una lista de los intentos que ha hecho? 
+
+
+
+11) APARTADO PANTALLA FINAL:
+
+Esto es similar a la introducción, esta pantalla debería mostrar si ganamos o perdimos.
+También es bastante personal la pantalla final.
+Como propuestas:
+Podríamos mostrar si ganaste o perdiste con un dibujo en la consola (Abro otro apartado para esto)
+Podríamos mostrar una especie de créditos del programa
+... (me quedé sin ideas)
+
+Problemas del apartado: ¿Qué hacemos como pantalla final?
+
+
+
+RECAPITULACIÓN DE PROBLEMAS:
+
+¿Qué vamos a escribir en la introducción?
+¿Vamos a poner instrucciones?, ¿Las ponemos acá o cuando pedimos la palabra?
+¿Dónde/Cuándo preguntamos la dificultad?
+¿Comprobar intento?
+¿Confirmar palabra?
+
+Variables de la dificultad:|_ ¿Mostrar la primera letra de la palabra?
+                           |_ ¿Vamos a guardar y ofrecerle una lista de los intentos que ha hecho? 
+
+¿Preguntar si finalizar o finalizar de una?
+
+Como resumen: 
+Tenemos que resolver estos problemas antes de programar, porque no sirve de nada mandarse si todavía no tenés bien claro qué querés que te salga en la pantalla.
+Sobre todo, los problemas de: VARIABLES DE LA DIFICULTAD, estos problemas impactan directamente en la lógica del programa y hay que saber que vamos a hacer desde el principio con estos aspectos.
+Obviamente podemos empezar a escribir sentencias simples, como pedir los valores y realizar las comprobaciones.
+Otro tema importante al dividir el trabajo, es acordar algunas pautas para el grupo que debemos "seguir".
+Me explico, tenemos que acordar la forma con la que nos vamos a comunicar con los jugadores: 
+_ podemos optar por algo más humano, o algo como más estructurado
+_ si nos vamos a referir a un "vos" o a un "usted" para conjugar todos los verbos de la misma manera
+_ si vamos a escribir un tipo de comunicación más cómica
+_ podemos hasta crear algún tipo de personaje o narrador con personalidad, y que por ejemplo quiere que ganes o que pierdas y te lo demuestre solamente con mensajes alentadores o desanimadores
+También tenemos que acordar la forma de programar, pero como somos pocos y no conocemos muchas formas y comandos distintos, todo esto se resume a: Programar legible y con variables con nombres normales.
+
+Me gustaría que alguien que lea esto, haga un .txt (documento de texto) y que plantee todos los problemas que estén acá y los que se les ocurran. 
+Y que, onda ese sea el .txt de debate (con todos dando su opinión) donde resolvamos los problemas de las funciones del programa.
+También estaría bueno hacer otro con dudas respecto a las líneas de código en sí.
+
+
+
+ESPECIAL) APARTADO DIBUJO EN CONSOLA:
+
+El proyecto lo vamos a hacer usando la consola. Pero tenemos la posibilidad de hacer dibujos. 
+Como para que me comprendan mejor, tiro algunos links de google de este tipo de imágenes:
+https://www.cyberciti.biz/media/uploads/l/tips/2012/06/unix-linux-boxes-draw-dog-design.png
+https://foto.askix.com/upload/7/b2/7b22d8cd32d895a08c9b237c72ce01bd.jpg
+https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2016/07/1467718020Ginit-in-action.png
+Acá habría que debatir bastante en caso de que hagamos algo de este estilo. 
+Se podría dibujar en el ahorcado:
+_ el mismo ahorcado que se le van sumando partes del cuerpo
+_ un corazón gigante que se va vaciando
+_ una especie de barril que se va llenando de "cagadas" y que el narrador se ría
+
+* Edit: Acabo de releerlo y esto sería bastante complicado con el sistema de preguntar las vidas. No sé hasta que punto es posible hacerlo con vidas entre 0 y 27, y cuanto tiempo lleva. 
+        Otra alternativa es preestablecer 3 tipos de dificultad: 1 vida, 3 vidas, 5 vidas.  
+
+También se puede aplicar para los créditos, en forma de dibujo o en forma de letras grandes.
+Hay muchas posibilidades y va en que tanto queremos personalizar nuestro ahorcado y pasar de un juego clásico y simple, a quizás algo más humano(?
+Tampoco sé hasta que punto el profesor quiere que hagamos un programa y no un juego, como tampoco sé si les pinta a ustedes más hacer programas que por ahí un juego. O sea, no desperdiciar tiempo en esto.
+Bueno, no sé.
+
+
+
+CONCLUSIÓN DE TODO:
+
+Bueno, planteé todas las opciones que se me ocurrieron. 
+Esta es mi opinión: Podríamos empezar a programar como lo más básico por decir así. Con esto me refiero a obviar la estética (introducción, reglas, dibujos, pantalla final) y las comprobaciones. 
+Hasta que tengamos la lógica básica funcionando y ahí empezar a agregar todo y a "parchear" posibles fallos.
+Eso sí antes de pensar la lógica, tenemos que resolver problemas que van directamente con la programación básica: (creo que son estos nomás, y algunos más que se les ocurran)
+_ ¿Comprobar intento?
+_ Variables de la dificultad:|_ ¿Mostrar la primera letra de la palabra?
+                             |_ ¿Vamos a guardar y ofrecerle una lista de los intentos que ha hecho?
+
+
+ 
+  
+
+
+
+
+
+ 
+
+   
+
+
+
+
+
+
